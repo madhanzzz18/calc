@@ -20,6 +20,7 @@ $(OBJ_DIR)/%.o: %.c
 	@echo "Compiling $<..."
 	$(CC) $(CFLAGS) -c $< -o $@
 
+
 clean:
 	@echo "Cleaning build files..."
 	rm -rf $(OBJ_DIR) $(TARGET)
