@@ -7,12 +7,13 @@ OBJ_DIR = obj
 TARGET = calc
 SRCS := $(shell find $(SRC_DIR) -name "*.c")
 
-OBJS := $(SRCS:%=$(OBJ_DIR)/%.o)
+OBJS := $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRCS))
 
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	@echo "Linking $(TARGET)..."
+	@mkdir -p $(dir $@)
+	@echo "Linking $@"
 	$(CC) $(OBJS) -o $@
 
 $(OBJ_DIR)/%.o: %.c
