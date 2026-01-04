@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -g
+CFLAGS = -Wall -g -I src/operations
 OBJ = obj/src/main.o obj/src/operations.o
 
 calc: $(OBJ)
@@ -8,8 +8,8 @@ calc: $(OBJ)
 obj/src/main.o: src/main.c
 	$(CC) $(CFLAGS) -c src/main.c -o obj/src/main.o
 
-obj/src/operations.o: src/operations.c src/operations.h
-	$(CC) $(CFLAGS) -c src/operations.c -o obj/src/operations.o
+obj/src/operations.o: src/operations/operations.c 
+	$(CC) $(CFLAGS) -c src/operations/operations.c -o obj/src/operations.o
 
 clean:
 	rm -f obj/src/*.o calc
