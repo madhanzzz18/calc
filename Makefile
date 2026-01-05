@@ -1,16 +1,26 @@
 CC = gcc
-CFLAGS = -Wall -g -I src/operations
-OBJ = obj/src/main.o obj/src/operations.o
+CFLAGS = -Wall -g -Iinclude
+LDFLAGS = -lm
 
-calc: $(OBJ)
-	$(CC) $(OBJ) -o calc
+SRCDIR = src
+OPSDIR = src/operations
+OBJDIR = obj/src
+INCDIR = include
 
-obj/src/main.o: src/main.c
-	$(CC) $(CFLAGS) -c src/main.c -o obj/src/main.o
+OBJ = $(OBJDIR)/main.o $(OBJDIR)/operations.o
+TARGET = calc
 
-obj/src/operations.o: src/operations/operations.c 
-	$(CC) $(CFLAGS) -c src/operations/operations.c -o obj/src/operations.o
+all: $(TARGET)
+
+$(TARGET): $(OBJ)
+	$(CC) $(OBJ) $(LDFLAGS) -o $(TARGET)
+
+$(OBJDIR)/main.o: $(SRCDIR)/main.c $(INCDIR)/operations.h
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJDIR)/operations.o: $(OPSDIR)/operations.c $(INCDIR)/operations.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f obj/src/*.o calc
+	rm -f $(OBJDIR)/*.o $(TARGET)
 
