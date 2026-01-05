@@ -1,7 +1,8 @@
-#include "operations.h"
-
-double add(double a, double b) { return a + b; }
-double sub(double a, double b) { return a - b; }
-double mul(double a, double b) { return a * b; }
-double divide(double a, double b) { return a / b; }
+#include<stdio.h>
+double add(double a, double b) {
+    printf("RESUlt : %f\n", a + b); 
+}
+double sub(double a, double b) { printf("RESULT :%f\n", a - b); }
+double mul(double a, double b) { printf("RESULT :%f\n" ,a * b); }
+double div(double a, double b) { printf("RESULT :%f\n" ,a / b); }
 
