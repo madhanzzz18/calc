@@ -134,6 +134,19 @@ int CLI(int argc, char *argv[])
             return 1;
         }
         result = div(a, b);
+    
+    }
+    else if (strcmp(argv[1], "mod") == 0) {
+        if (b == 0) {
+            printf("Error: Modulus by zero\n");
+            return 1;
+        }
+        result = mod(a, b);
+    }
+
+    else if (strcmp(argv[1], "pow") == 0){
+        result = power(a, b);
+        return 1;
     }
     else
     {
