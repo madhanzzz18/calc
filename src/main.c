@@ -65,6 +65,7 @@ int menu_driven(){
         if (scanf("%lf %lf", &a, &b) != 2)
         {
                 printf("Invalid input. Please enter numbers only.\n");
+                while (getchar() !='\n');
                 return 0;
         }
         if (option==1){
@@ -106,7 +107,7 @@ int menu_driven(){
 
 int CLI(int argc, char *argv[])
 {
-    double a, b, result;
+    double a, b;
     /* if (argc != 4) */
     /* { */
     /*     printf("Usage: %s <add|sub|mul|div> <num1> <num2>\n", argv[0]); */
@@ -121,11 +122,11 @@ int CLI(int argc, char *argv[])
     }
 
     if (strcmp(argv[1], "add") == 0)
-        result = add(a, b);
+        add(a, b);
     else if (strcmp(argv[1], "sub") == 0)
-        result = sub(a, b);
+        sub(a, b);
     else if (strcmp(argv[1], "mul") == 0)
-        result = mul(a, b);
+        mul(a, b);
     else if (strcmp(argv[1], "div") == 0)
     {
         if (b == 0)
@@ -133,7 +134,7 @@ int CLI(int argc, char *argv[])
             printf("Error: Division by zero\n");
             return 1;
         }
-        result = div(a, b);
+        div(a, b);
     
     }
     else if (strcmp(argv[1], "mod") == 0) {
@@ -141,11 +142,11 @@ int CLI(int argc, char *argv[])
             printf("Error: Modulus by zero\n");
             return 1;
         }
-        result = mod(a, b);
+        mod(a, b);
     }
 
     else if (strcmp(argv[1], "pow") == 0){
-        result = power(a, b);
+        power(a, b);
         return 1;
     }
     else

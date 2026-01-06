@@ -5,7 +5,8 @@ int mod(int a, int b) {
         printf("Error: Cannot divide by zero!\n");
         return 0;
     }
-    printf("%d", a % b);
+    printf("%d\n", a % b);
+    return 0;
 }
 
 float power(float base, int exp) {
@@ -13,5 +14,7 @@ float power(float base, int exp) {
     for (int i = 0; i < exp; i++) {
         result = result * base;
     }
-    printf("%f", result);
+
+    printf("%f\n", result);
+    return result;
 }
